@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProductController">
+    <children>
+        <BorderPane layoutX="-6.0" layoutY="7.0" prefHeight="611.0" prefWidth="1024.0" style="-fx-border-color: black; -fx-border-width: 1;">
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+            <right>
+            </right></BorderPane>
+        <GridPane layoutX="7.0" layoutY="6.0" prefHeight="600.0" prefWidth="1006.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="344.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="0.0" prefWidth="0.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="463.0" minWidth="10.0" prefWidth="463.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="195.4" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="518.6" minHeight="10.0" prefHeight="518.6" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="315.39996948242185" minHeight="10.0" prefHeight="78.79999999999995" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <SplitPane dividerPositions="0.5491" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="518.0" prefWidth="463.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <items>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="462.0">
+                            <children>
+                                <TableView fx:id="partTable" layoutX="4.0" layoutY="50.0" onMouseClicked="#onPartSelected" prefHeight="200.0" prefWidth="450.0">
+                                    <columns>
+                                        <TableColumn fx:id="partTablePartIDCol" prefWidth="96.20001220703125" text="Part ID" />
+                                        <TableColumn fx:id="partTablePartNameCol" prefWidth="92.5999755859375" text="Part Name" />
+                                        <TableColumn fx:id="partTableStockCol" prefWidth="118.79998779296875" text="Inventory Level" />
+                                        <TableColumn fx:id="partTablePriceCol" prefWidth="147.800048828125" text="Price/ Cost per Unit" />
+                                    </columns>
+                                </TableView>
+                                <TextField fx:id="productSearchField" layoutX="270.0" layoutY="14.0" onKeyPressed="#onProductSearchField" prefHeight="26.0" prefWidth="174.0" promptText="Search by Part ID or Name" />
+                                <Button fx:id="addPartButton" layoutX="393.0" layoutY="250.0" mnemonicParsing="false" onAction="#onAddPartButton" text="Add" />
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding></AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="462.0">
+                            <children>
+                                <TableView fx:id="productTable" layoutX="4.0" layoutY="3.0" onMouseClicked="#onProductSelected" prefHeight="200.0" prefWidth="450.0">
+                                    <columns>
+                                        <TableColumn fx:id="productTablePartIDCol" prefWidth="99.800048828125" text="Part ID" />
+                                        <TableColumn fx:id="productTablePartNameCol" prefWidth="93.0" text="Part Name" />
+                                        <TableColumn fx:id="productTablePartStockCol" prefWidth="122.20001220703125" text="Inventory Level" />
+                                        <TableColumn fx:id="productTablePriceCol" minWidth="6.20001220703125" prefWidth="135.79998779296875" text="Price/ Cost per Unit" />
+                                    </columns>
+                                </TableView>
+                            </children></AnchorPane>
+                    </items>
+                </SplitPane>
+
+                <Label prefHeight="26.0" prefWidth="134.0" text="Modify Product" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="450.0" left="40.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Button fx:id="saveProduct" mnemonicParsing="false" onAction="#onSaveProduct" text="Save" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets left="275.0" top="50.0" />
+                    </GridPane.margin>
+                </Button>
+                <Button fx:id="toMain" mnemonicParsing="false" onAction="#onToMain" prefHeight="26.0" prefWidth="59.0" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets left="375.0" top="50.0" />
+                    </GridPane.margin></Button>
+                <Label alignment="CENTER" text="ID" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets left="50.0" top="75.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="productID" promptText="Auto Gen-Disabled" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets left="100.0" right="90.0" top="70.0" />
+                    </GridPane.margin>
+                    <effect>
+                        <ColorAdjust brightness="-0.1" contrast="-0.21" saturation="-0.11" />
+                    </effect>
+                </TextField>
+                <Label text="Name" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="270.0" left="50.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="productName" promptText="Enter product name here" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="270.0" left="100.0" right="90.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="productInv" promptText="Enter current inventory" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="200.0" left="100.0" right="150.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label text="Inv" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="200.0" left="50.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label text="Price" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="170.0" left="50.0" top="40.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="productPrice" onAction="#totalPriceTest" promptText="Enter price/cost" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="170.0" left="100.0" right="150.0" top="40.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="productMax" promptText="Enter max inventory" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="180.0" left="100.0" right="150.0" top="120.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label text="Max" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="180.0" left="50.0" top="120.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label text="Min" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="180.0" left="210.0" top="120.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="productMin" onAction="#isIntegerTest3"  prefHeight="26.0" prefWidth="97.0" promptText="Enter minimum inventory" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="180.0" left="250.0" top="120.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label fx:id="modifyProductResultsLabel" prefHeight="18.0" prefWidth="307.0" GridPane.rowIndex="2" />
+                <Button fx:id="removeAssociatedPart" mnemonicParsing="false" onAction="#onRemoveAssociatedPart" prefHeight="26.0" prefWidth="173.0" text="Remove Associated Part" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets bottom="50.0" left="275.0" />
+                    </GridPane.margin>
+                </Button>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

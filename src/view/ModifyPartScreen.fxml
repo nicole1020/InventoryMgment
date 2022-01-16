@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyPartController">
+    <children>
+        <BorderPane prefHeight="600.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-width: 1;" />
+        <GridPane prefHeight="600.0" prefWidth="600.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="344.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="256.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="195.4" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="447.8" minHeight="10.0" prefHeight="304.0000305175781" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="315.39996948242185" minHeight="10.0" prefHeight="216.39996948242185" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <RadioButton fx:id="modifyRadioInHouse" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onModifyRadio" prefHeight="18.0" prefWidth="143.0" selected="true" text="In-House">
+                    <GridPane.margin>
+                        <Insets left="200.0" />
+                    </GridPane.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="tgroupmodifypart" />
+               </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="modifyRadioOutsourced" mnemonicParsing="false" onAction="#onModifyRadioSecond" text="Outsourced" toggleGroup="$tgroupmodifypart" GridPane.columnIndex="1">
+                    <GridPane.margin>
+                        <Insets left="30.0" />
+                    </GridPane.margin>
+                </RadioButton>
+                <Label prefHeight="26.0" prefWidth="104.0" text="Modify Part">
+                    <GridPane.margin>
+                        <Insets left="40.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Button fx:id="saveModifyPart" mnemonicParsing="false" onAction="#onSaveModifyPart" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets />
+                    </GridPane.margin>
+                </Button>
+                <Button fx:id="modifyToMain" mnemonicParsing="false" onAction="#onModifyToMain" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets right="100.0" />
+                    </GridPane.margin>
+                </Button>
+                <Label alignment="CENTER" text="ID" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets left="50.0" top="50.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="modifyPartID" editable="false" promptText="Auto Gen-Disabled" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                    <GridPane.margin>
+                        <Insets left="150.0" right="50.0" top="50.0" />
+                    </GridPane.margin>
+                    <effect>
+                        <ColorAdjust brightness="-0.1" contrast="-0.21" saturation="-0.11" />
+                    </effect>
+                </TextField>
+                <Label text="Name" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="120.0" left="50.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="modifyPartName" onAction="#isStringTest" promptText="Enter part name here" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="120.0" left="150.0" right="50.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="modifyPartInv" onAction="#isIntegerTest1" promptText="Enter current inventory" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="40.0" left="150.0" right="50.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label text="Inv" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="40.0" left="50.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label text="Price/Cost" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="50.0" top="40.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="modifyPartPrice" onAction="#isDoubleTest" promptText="Enter price/cost" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="150.0" right="50.0" top="40.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="modifyPartMax" onAction="#isIntegerTest2" promptText="Enter max inventory" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="150.0" right="50.0" top="120.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label text="Max" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="50.0" top="120.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label text="Min" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="20.0" top="120.0" />
+                    </GridPane.margin>
+                </Label>
+                <TextField fx:id="modifyPartMin" onAction="#isIntegerTest3" promptText="Enter minimum inventory" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="70.0" right="30.0" top="120.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="modifyLastTextBoxInput" onAction="#isIntegerTest4" promptText="Enter Machine ID" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="150.0" right="50.0" top="200.0" />
+                    </GridPane.margin>
+                </TextField>
+                <Label fx:id="modifyLastTextBox" text="Machine ID" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="50.0" top="200.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label fx:id="modifyResultsLabel" prefHeight="18.0" prefWidth="307.0" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets left="15.0" />
+               </padding></Label>
+            <Label prefHeight="18.0" prefWidth="326.0" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
